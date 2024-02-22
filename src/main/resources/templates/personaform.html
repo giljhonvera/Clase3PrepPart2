@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Persona Nueva</title>
+<link rel="stylesheet" th:href="@{/css/myGreatCssStyles.css}" />
+</head>
+<body>
+	<div align="center">
+	<h1>Person Registration</h1>
+	
+	<form action="#" th:action="@{/aumentos}" method="post" th:object="${persona}">
+	
+		<label>Nombre Completo:</label>
+		<input type="text" th:field="*{name}" />
+		<br/>
+		
+		<label>Porcentaje Aumento:</label>
+		<input type="text" th:field="*{aumento}" />
+		<br/>
+		
+		<label>Tipo Empleado:</label>
+		<select th:field="*{tipo}">
+			<option th:each="t : ${tipos}" th:value="${t}" th:text="${t}" />
+		</select>
+		<br/>	
+			
+		<p><input type="submit" value="Registrar" /> <input type="reset" value="Reset" /></p>
+	</form>
+	<div><a href="/verlista">Ver empleados</a></div>
+</div>
+</body>
+</html>
